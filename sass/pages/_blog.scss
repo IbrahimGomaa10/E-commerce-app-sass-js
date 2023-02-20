@@ -1,0 +1,108 @@
+@use "../layout/colors" as *;
+@use "../helpers/mixins" as *;
+@use "../layout/media" as *;
+
+.banner-blog {
+  @include bgimage("banner/b19.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  .container {
+    height: 40vh;
+    @include centering-flex;
+    flex-direction: column;
+    * {
+      color: #FFF;
+    }
+  }
+}
+
+.blog-sec {
+  .container {
+    article {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 120px;
+      .image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 40vh;
+        width: 500px;
+        position: relative;
+        @include rounded-deg(3px);
+        h1 {
+          position: absolute;
+          top: -55px;
+          left: 50%;
+          @include left-reset;
+          font-size: 6rem;
+          color: #777;
+          z-index: -1;
+          opacity: .5;
+        }
+      }
+      .first {
+        @include bgimage("blog/b1.jpg");
+      }
+      .second {
+        @include bgimage("blog/b2.jpg");
+      }
+      .third {
+        @include bgimage("blog/b3.jpg");
+      }
+      .fourth {
+        @include bgimage("blog/b4.jpg");
+      }
+      .fifth {
+        @include bgimage("blog/b7.jpg");
+      }
+      .sixth {
+        @include bgimage("blog/b6.jpg");
+      }
+      .content {
+        flex: 1;
+        h5 {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          span {
+            background-color: $grayColor;
+            width: 30px;
+            height: 2px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include break-point(max-medium) {
+  .blog-sec {
+    .container {
+      article {
+        flex-direction: column;
+        .image {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
+@include break-point(max-small) {
+  .blog-sec {
+    .container {
+      article {
+        flex-direction: column;
+        .image {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

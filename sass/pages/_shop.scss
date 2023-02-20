@@ -1,0 +1,36 @@
+@use "../layout/colors" as *;
+@use "../helpers/mixins" as *;
+@use "../layout/media" as *;
+
+// Start Banner
+
+.banner-shop {
+  @include bgimage("banner/b1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  .container {
+    height: 40vh;
+    @include centering-flex;
+    flex-direction: column;
+    * {
+      color: #FFF;
+    }
+  }
+}
+
+// Start Pagination
+.pagination {
+  text-align: center;
+  .container {
+    @include centering-flex;
+    gap: 5px;
+    a {
+      color: #FFF;
+      background-color: $mainColor;
+      padding: 15px 20px;
+      @include rounded-deg(5px);
+      font-weight: 500;
+    } 
+  }
+}

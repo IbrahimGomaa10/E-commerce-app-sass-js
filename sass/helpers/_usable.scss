@@ -1,0 +1,86 @@
+@use "./mixins" as *;
+@use "../layout/media" as *;
+@use "../layout/colors" as *;
+@use "../layout/variables" as *;
+
+
+// // Start SideBar
+// .sidebar {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 11111;
+//   width: 15%;
+//   height: 100vh;
+//   background-color: #FFF;
+//   .content {
+//     height: inherit;
+//     @include centering-flex;
+//     flex-direction: column;
+//     h5 {
+//       margin-bottom: 20px;
+//     }
+//     ul {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       li {
+//         width: 20px;
+//         height: 20px;
+//         margin-left: 10px;
+//         border-radius: 50%;
+//         cursor: pointer;
+//         &:first-child {
+//           background-color: #088178;
+//         }
+//         &:nth-child(2) {
+//           background-color: #4aaeff;
+//         }
+//         &:nth-child(3) {
+//           background-color: #8b3dff;
+//         }
+//         &:last-child {
+//           background-color: #ff4a59;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.comp {
+  .heading-comp {
+    @include centering-flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+      font-size: 4rem;
+      letter-spacing: -2px;
+    }
+  } 
+}
+
+@include break-point(max-small) {
+  .comp {
+    .heading-comp {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+
+.btn-explore-filled {
+  @include btn-reset(20px, 30px, $mainColor);
+  @include trans-dur(.3);
+  @include rounded-deg(10px);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.regular-btn {
+  @include btn-reset(15px, 10px, none);
+  font-size: .9rem;
+  border: 1px solid $borderColor;
+  @include rounded-deg(5px)
+}

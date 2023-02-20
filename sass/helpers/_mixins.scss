@@ -1,0 +1,78 @@
+@mixin reset-item {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+@mixin rounded-deg($val) {
+  border-radius: $val;
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -o-border-radius: $val;
+}
+
+
+@mixin rounded-circ {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+@mixin centering-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-alignment($align-val, $gap-val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($align-val, 1fr));
+  gap: $gap-val;
+} 
+
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($color, $opacity);
+}
+
+
+@mixin trans-dur($dur) {
+  transition: $dur+s;
+  -moz-transition: $dur+s;
+  -webkit-transition: $dur+s;
+  -o-transition: $dur+s;
+}
+
+@mixin btn-reset($paddingVal1, $paddingVal2, $color) {
+  background: none;
+  border: 0;
+  outline: 0;
+  background-color: $color;
+  padding: $paddingVal1 $paddingVal2;
+}
+
+@mixin left-reset {
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+@mixin top-reset {
+  transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+@mixin bgimage($name) {
+  $url:"../assets/img/#{$name}";
+  background-image: url($url);
+}

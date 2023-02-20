@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome file -->
+    <link rel="stylesheet" href="./sass/all.min.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./sass/style.css">
+    <title>cart site</title>
+  </head>
+  <body class="cart">
+    <!-- Start NavBar -->
+    <header class="up-header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="home.html"><img src="assets/img/logo.png" alt="Logo Img"></a>
+          </div>
+          <ul class="active">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <li><a href="cart.html" class="cartBag"><i class="fas fa-shopping-bag cart"></i></a></li>
+        </nav>
+        <li><i class="fas fa-outdent toggle-btn"></i></li>
+      </div>
+    </header>
+    <!-- Start Banner -->
+    <div class="banner-cart">
+      <div class="container">
+        <h2>#Cart</h2>
+        <p>Add your coupon code & Save UPTO 70%</p>
+      </div>
+    </div>
+    <!-- Start product Table -->
+    <section class="product-table section-p section-m">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Remove</td>
+              <td>Image</td>
+              <td>Product</td>
+              <td>Price</td>
+              <td>Quality</td>
+              <td>Subtotal</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td><img src="assets/img/products/f1.jpg" alt="1"></td>
+              <td>Cartoon Astronaut T-shirts</td>
+              <td>$118.19</td>
+              <td><input type="number" name="number" id="pro-number" value="1" min="1" max="99999"></td>
+              <td>$118.19</td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td><img src="assets/img/products/f2.jpg" alt="1"></td>
+              <td>Cartoon Astronaut T-shirts</td>
+              <td>$118.19</td>
+              <td><input type="number" name="number" id="pro-number" value="1" min="1" max="99999"></td>
+              <td>$118.19</td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td><img src="assets/img/products/f3.jpg" alt="1"></td>
+              <td>Cartoon Astronaut T-shirts</td>
+              <td>$118.19</td>
+              <td><input type="number" name="number" id="pro-number" value="1" min="1" max="99999"></td>
+              <td>$118.19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Start Coupon Section -->
+    <section class="coupon section-p">
+      <div class="container">
+        <div class="apply">
+          <h3>Apply Coupon</h3>
+          <input type="text" placeholder="Enter Your Coupon"> <span><button type="button" class="btn">Apply</button></span>
+        </div>
+        <div class="cart-tot">
+          <h3>Cart Total</h3>
+          <table class="table">
+            <tr>
+              <td>Cart Subtotal</td>
+              <td>$335</td>
+            </tr>
+            <tr>
+              <td>Shipping</td>
+              <td>Free</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td>$335</td>
+            </tr>
+          </table>
+          <div class="btn">
+            <button type="button">Proceed to checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Start Footer -->
+    <footer class="details section-m">
+      <div class="container">
+        <div class="col-contact">
+          <div class="image">
+            <img src="assets/img/logo.png" alt="Logo">
+          </div>
+          <div class="col contact-cont">
+            <h5 class="title">Contact</h5>
+            <p><span>Address:</span> 562 Wellington Road Street 32. San Francisco</p>
+            <p><span>Phone:</span> +01 066108567 / +01 556742242</p>
+            <p><span>Hours:</span> 562 Wellington Road Street 32. San Francisco</p>
+            <h5 class="follow title">Follow Us</h5>
+            <div class="social">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-pinterest-p"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col col-about">
+          <h5 class="title">About</h5>
+            <p>About Us</p>
+            <p>Delivery Information</p>
+            <p>Privacy Policy</p>
+            <p>Terms & Conditions</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="col col-myaccount">
+          <h5 class="title">My Account</h5>
+            <p>Sign In</p>
+            <p>View Cart</p>
+            <p>My Wishlist</p>
+            <p>Track My Order</p>
+            <p>Help</p>
+        </div>
+        <div class="col col-installapp">
+          <h5 class="title">Install App</h5>
+          <p>From App Store or Google Play</p>
+          <div class="app">
+            <img src="assets/img/pay/app.jpg" alt="app">
+            <img src="assets/img/pay/play.jpg" alt="play">
+          </div>
+          <p>Secure Payment Gateways</p>
+          <div class="pay">
+            <img src="assets/img/pay/pay.png" alt="pay">
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <div class="container">
+        <p>&copy; 2022 Ibrahim Gomaa - Html Css Javascript E-commerce Template</p>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

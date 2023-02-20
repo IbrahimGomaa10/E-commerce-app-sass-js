@@ -1,0 +1,29 @@
+
+@mixin break-point($point-name) {
+  @if $point-name == small {
+      @media (min-width: 768px) {
+          @content
+      }
+  }
+  @else if $point-name == max-small {
+    @media (max-width: 767px) {
+        @content
+    }
+  } 
+  @else if $point-name == medium {
+      @media (min-width: 992px) {
+          @content
+      }
+  }
+  @else if $point-name == max-medium {
+    @media (max-width: 991px) {
+        @content
+    }
+  }
+  @else if $point-name == large {
+      @media (min-width: 1200px) {
+          @content
+    }
+  }
+}
+

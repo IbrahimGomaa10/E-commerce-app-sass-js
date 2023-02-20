@@ -1,0 +1,617 @@
+@use "../layout/colors" as *;
+@use "../helpers/mixins" as *;
+@use "../layout/media" as *;
+
+// Start sidebar 
+
+body {
+  overflow-x: hidden;
+}
+
+
+// Start Navbar
+
+.up-header {
+  background-color: $navColor;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 2px 5px #DDD;
+  z-index: 111;
+  .container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      .logo img {
+        line-height: 80px;
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
+          font-weight: 500;
+          a {
+            color: $grayColor;
+            margin-left: 1.7rem;
+            font-size: 1em;
+            position: relative;
+            @include trans-dur(.2);
+            &:hover, &.active {
+              color: $mainColor;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              height: 2px;
+              width: 0;
+              background-color: $mainColor;
+              @include trans-dur(.2);
+            }
+            &:hover::before, &.active::before {
+              width: 60%;
+            }
+          }
+        } 
+      }
+      i.cart {
+        font-size: 1.1rem;
+        color: $grayColor;
+        cursor: pointer;
+        @include trans-dur(.2);
+        &:hover {
+          color: $mainColor;
+        }
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  i.toggle-btn {
+    margin-left: 1.7rem;
+    font-size: 1.2rem;
+    color: $grayColor;
+    font-size: 1.3rem;
+    @include trans-dur(.2);
+    cursor: pointer;
+    &:hover {
+      color: $mainColor;
+    }
+  }
+}
+
+@include break-point(medium) {
+  .toggle-btn {
+    display: none;
+  }
+}
+
+@include break-point(max-medium) {
+  ul {
+    @include trans-dur(.3);
+    padding: 20px;
+    flex-direction: column;
+    position: absolute;
+    top: 85px;
+    right: -600px;
+    background-color: $navColor;
+    width: 60%;
+    height: 50vh;
+    @include rounded-deg(5px);
+    &.active {
+      right: 12px;
+    }
+    a {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// Start Banner section
+section.banner {
+  @include bgimage("hero4.png");
+  background-position: center top;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  .banner-content {
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    h4 {
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: $mainColor;
+    }
+    .btn-banner {
+      background: 0;
+      outline: 0;
+      border: 0;
+      color: $mainColor;
+      @include bgimage("button.png");
+      background-size: cover;
+      padding: 14px 80px 14px 65px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+// Start features
+.features {
+  .container {
+    @include grid-alignment(170px, 22px);
+    .feature {
+      border: 1px solid $borderColor;
+      padding: 10px;
+      @include rounded-deg(10px);
+      @include centering-flex;
+      flex-direction: column;
+      h5 {
+        margin: 20px 10px 0;
+        padding: 5px 8px;
+        width: fit-content;
+        @include rounded-deg(5px);
+        color: $mainColor;
+      }
+      &:first-child h5 {
+        background-color: $first-bg;
+      }
+      &:nth-child(2) h5 {
+        background-color: $sec-bg;
+      }
+      &:nth-child(3) h5 {
+        background-color: $third-bg;
+      }
+      &:nth-child(4) h5 {
+        background-color: $fourth-bg;
+      }
+      &:nth-child(5) h5 {
+        background-color: $fifth-bg;
+      }
+      &:nth-child(6) h5 {
+        background-color: $six-bg;
+      }
+    }
+  } 
+}
+
+// Start Products
+
+.products {
+  .container {
+    @include grid-alignment(250px, 15px);
+    .product-box {
+      border: 1px solid $borderColor;
+      @include rounded-deg(10px);
+      padding: 15px 0;
+      @include trans-dur(.3);
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 1px 1px 10px #DDD;
+        .price {
+          span {
+            transform: rotate(-370deg);
+          }
+          i.basket {
+            transform: rotate(360deg);
+          }
+        }
+      }
+      .image {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 15rem;
+          margin: 0 0 10px 0;
+          @include rounded-deg(10px)
+        }
+      }
+      span {
+        color: $grayColor;
+        font-size: .8rem;
+        padding-left: 15px;
+        &.title {
+          font-weight: bold;
+          margin-bottom: 8px;
+          display: inline-block;
+        }
+        &.stars i {
+          color: $starColor;
+          margin-bottom: 15px;
+        }
+      }
+      h5 {
+        padding-left: 15px;
+        margin-bottom: 5px;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        span {
+          font-size: 1.2rem;
+          font-weight: 500;
+          transform: rotate(10deg);
+          display: inline-block;
+          color: $mainColor;
+          @include trans-dur(.2);
+        }
+        i.basket {
+          margin-right: 15px;
+          font-size: 1.1rem;
+          color: $mainColor;
+          background-color: $borderColor;
+          padding: 10px;
+          @include rounded-circ;
+          @include trans-dur(.3);
+        }
+      }
+    }
+  }
+}
+
+@include break-point(max-medium) {
+  .product-box {
+    @include centering-flex;
+    flex-direction: column;
+    .price {
+    flex-direction: row;
+    justify-content: space-evenly;
+    }
+  }
+}
+
+// Start Services
+
+.services {
+  @include bgimage("banner/b2.jpg");
+  background-position: top center;
+  background-attachment: fixed;
+  padding: 100px;
+  .serv-content {
+    @include centering-flex;
+    flex-direction: column;
+    text-align: center;
+    * {
+      color: #FFF;
+    }
+    h4 {
+      font-size: .9rem;
+      font-weight: 400;
+    }
+    h2 {
+      margin: 20px 0;
+      font-size: 2rem;
+      span {
+        color: $off-color;
+      }
+    }
+  }
+}
+
+@include break-point(max-medium) {
+  .services {
+    .serv-content {
+      h2 {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// Start new arrival 
+.new-products {
+  .container {
+    @include grid-alignment(250px, 15px);
+    .product-box {
+      border: 1px solid $borderColor;
+      @include rounded-deg(10px);
+      padding: 15px 0;
+      @include trans-dur(.3);
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 1px 1px 10px #DDD;
+        .price {
+          span {
+            transform: rotate(-370deg);
+          }
+          i.basket {
+            transform: rotate(360deg);
+          }
+        }
+      }
+      .image {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 15rem;
+          margin: 0 0 10px 0;
+          @include rounded-deg(10px)
+        }
+      }
+      span {
+        color: $grayColor;
+        font-size: .8rem;
+        padding-left: 15px;
+        &.title {
+          font-weight: bold;
+          margin-bottom: 8px;
+          display: inline-block;
+        }
+        &.stars i {
+          color: $starColor;
+          margin-bottom: 15px;
+        }
+      }
+      h5 {
+        padding-left: 15px;
+        margin-bottom: 5px;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        span {
+          font-size: 1.2rem;
+          font-weight: 500;
+          transform: rotate(10deg);
+          display: inline-block;
+          color: $mainColor;
+          @include trans-dur(.2);
+        }
+        i.basket {
+          margin-right: 15px;
+          font-size: 1.1rem;
+          color: $mainColor;
+          background-color: $borderColor;
+          padding: 10px;
+          @include rounded-circ;
+          @include trans-dur(.3);
+        }
+      }
+    }
+  }
+}
+
+// Start deals 
+
+.deals {
+  .first-deal {
+    @include grid-alignment(400px, 30px);
+    .box {  
+      @include bgimage("banner/b17.jpg");
+      background-size: cover;
+      background-position: center right;
+      min-width: 450px;
+      height: 50vh;
+      @include centering-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      @include trans-dur(.3);
+      &:hover {
+        transform: scale(.9);
+        button.regular-btn {
+          background: $mainColor;
+          border: 1px solid $mainColor;
+        }
+        button.collection {
+          background: 0;
+          border: 1px solid #FFF;
+        }
+      }
+      * {
+        color: #FFF;
+      }
+      h5 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      button {
+        @include trans-dur(.3);
+        cursor: pointer;
+      }
+      button.collection {
+        background-color: $mainColor;
+        border: 1px solid $mainColor;
+      }
+    }
+    .box2 {
+      @include bgimage("banner/b10.jpg");
+    }
+  }
+}
+
+.sale {
+  .first-sale {
+    @include grid-alignment(300px, 20px);
+    .box {
+      @include bgimage("banner/b7.jpg");
+      background-size: cover;
+      background-position: center left;
+      min-width: 250px;
+      height: 30vh;
+      @include centering-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      margin-top: 30px;
+      * {
+        color: #FFF;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        color: $banner-color;
+        font-weight: bold;
+      }
+    }
+    .box2 {
+      @include bgimage("banner/b4.jpg");
+    }
+    .box3 {
+      @include bgimage("banner/b18.jpg");
+    }
+  }
+}
+
+// Start NewsLetter
+
+.news {
+  @include bgimage("banner/b14.png");
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .newsletter {
+      h4 {
+        color: #FFF;
+      }
+      p {
+        color: #818ea0;
+        font-weight: bold;
+        margin: 20px 0;
+        span {
+          color: $span-color;
+        }
+      }
+    }
+    .e-mail {
+      form {
+        display: flex;
+        input {
+          background: transparent;
+          outline: 0;
+          border: 0;
+          color:#818ea0;
+          background-color: #FFF;
+          padding: 0 2.25em;
+          height: 3.125rem;
+          font-size: 1rem;
+          width: 100%;
+          border: 1px solid transparent;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          font-size: .8rem;
+          font-weight: 500;
+        }
+        button.btn-filled {
+          background: transparent;
+          outline: 0;
+          border: 0;
+          color: #FFF;
+          background-color: $mainColor;
+          padding: 0 1.25em;
+          height: 3.125rem;
+          font-size: 1rem;
+          width: 60%;
+          border: 1px solid transparent;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@include break-point(max-medium) {
+  .newsletter {
+    text-align: center;
+    margin: auto;
+  }
+  .e-mail {
+    margin: auto;
+  }
+}
+
+// start Contact 
+
+.details {
+  .container {
+    @include grid-alignment(270px, 10px);
+    .col {
+      .title {
+        margin: 1.1rem 0;
+      }
+    }
+    .col-contact {
+      display: flex;
+      flex-direction: column;
+      p {
+        margin: 15px 0;
+        font-size: .8rem;
+        span {
+          font-weight: bold;
+        }
+      }
+      .social {
+        margin-bottom: 20px;
+        i {
+          margin-left: 2px;
+          color: $p-color;
+          cursor: pointer;
+          @include trans-dur(.2);
+          &:hover {
+            color: $mainColor;
+          }
+        }
+      }
+    }
+    .col-about, .col-myaccount {
+        display: flex;
+        flex-direction: column;
+        p {
+          font-size: .8rem;
+          color: $p-color;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+  .col-installapp {
+    p {
+      font-size: .8rem;
+      font-weight: 500;
+    }
+    .app {
+      display: flex;
+      gap: 10px;
+      img {
+        border: 1px solid $borderColor;
+        width: 150px;
+      }
+    }
+  }
+
+.copyright {
+  text-align: center;
+  p {
+    font-size: .9rem;
+    color: $grayColor;
+    padding: 30px;
+  }
+}
